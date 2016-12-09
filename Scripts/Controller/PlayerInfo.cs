@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour {
-    public int Health = 4;
+    public int maxHealth = 4;
+    private int currentHealth;
 
    
 	// Use this for initialization
 	void Start () {
-
+        currentHealth = maxHealth;
 	}
 	
 	// Update is called once per frame
@@ -18,10 +19,22 @@ public class PlayerInfo : MonoBehaviour {
 
     public void Dameger(int dameger)
     {
-        Health -= dameger;
-        if (Health == 0) {
+        currentHealth -= dameger;
+        if (currentHealth == 0) {
             //game over
 
         }
+    }
+    public void HealthAdd(int hp) {
+        if (currentHealth == maxHealth)
+        {
+            Debug.Log("good");
+            return;
+        }
+        else {
+            currentHealth += hp;
+            
+        }
+        Debug.Log(currentHealth);
     }
 }
